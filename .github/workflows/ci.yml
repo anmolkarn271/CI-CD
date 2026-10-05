@@ -44,4 +44,4 @@ jobs:
           name: build-output
 
       - name: Check artifact
-        run: Get-Content build-output.txt
+        run: cat build-output.txt
