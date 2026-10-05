@@ -5,6 +5,7 @@ on:
   pull_request:
 
 jobs:
+
   test:
     runs-on: ubuntu-latest
 
@@ -31,3 +32,16 @@ jobs:
         with:
           name: build-output
           path: build-output.txt
+
+  download:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+
+      - name: Check artifact
+        run: Get-Content build-output.txt
