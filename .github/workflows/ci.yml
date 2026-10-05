@@ -23,5 +23,11 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Build Application
+      - name: Build application
         run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: build-output.txt
